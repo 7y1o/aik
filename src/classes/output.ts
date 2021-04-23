@@ -5,6 +5,7 @@ namespace Aik {
     }
 
     export class Output {
+        /** Output message */
         public static Show(message: string, type: OutType = Aik.OutType.TEXT) {
             switch (type) {
                 case Aik.OutType.TEXT: {
@@ -17,6 +18,11 @@ namespace Aik {
                     process.exit(0);
                 }
             }
+        }
+
+        /** Get random string from responses array */
+        public static GetRandomString(array: string[]) : string {
+            return array[Math.floor(Math.random() * (array.length - 1))];
         }
     }
 }
