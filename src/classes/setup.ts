@@ -1,7 +1,7 @@
 namespace Aik {
     export class Setup {
         /** Run setup */
-        public static RunSetup() {
+        public static RunSetup(dataInstance: Aik.Data) {
             let templates: any = Aik.Data.LoadJSON(`${__dirname}/../../data/templates.json`);
 
             // Begin
@@ -19,6 +19,11 @@ namespace Aik {
 
             // Got user name
             console.log(Aik.Output.GetRandomString(templates.get_name_success, 200));
+            dataInstance.SaveVariable('name', userName);
+
+            // Ask search engine
+            console.log(Aik.Output.GetRandomString(templates.get_search, 200));
+            let search = Aik.Input.Choice('Поисковая система', ['Яндекс', 'Google']);
         }
 
         public static findName(line: string) : string {
