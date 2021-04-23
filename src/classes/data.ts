@@ -13,8 +13,8 @@ namespace Aik {
         }
 
         /** Load JSON file from disk */
-        public static LoadJSON(path: string) : object {
-            let dataHolder: object;
+        public static LoadJSON(path: string) {
+            let dataHolder;
 
             try {
                 dataHolder = JSON.parse(
