@@ -21,7 +21,8 @@ namespace Aik {
         }
 
         /** Get random string from responses array */
-        public static GetRandomString(array: string[]) : string {
+        public static GetRandomString(array: string[], hold: number = 0) : string {
+            require('deasync').sleep(hold);
             return array[Math.floor(Math.random() * (array.length - 1))];
         }
     }
