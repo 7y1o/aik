@@ -1,2 +1,1 @@
-const Assistant = require('./engine/core');
-const aik = new Assistant.Core();
+require('./engine/init')();
