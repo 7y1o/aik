@@ -1,17 +1,22 @@
-const ansi = require('ansi-colors');
-
 namespace Aik {
-    enum OutType {
-        LINE,
+    export enum OutType {
+        TEXT,
         ERROR
     }
 
-    class Output {
-        /** Output simple line */
-        public static show(message: string, type: OutType) {
-            console.log(`${ansi.greenBright('Айк')}: ${type === OutType.ERROR ? ansi.redBright(message) : message}`);
+    export class Output {
+        public static Show(message: string, type: OutType = Aik.OutType.TEXT) {
+            switch (type) {
+                case Aik.OutType.TEXT: {
+                    console.log(`[${ansi.cyan('Айк')}]: ${message}`);
+                    break;
+                }
+
+                case Aik.OutType.ERROR: {
+                    console.log(`[${ansi.cyan('Айк')}]: ${ansi.redBright(message)}`);
+                    process.exit(0);
+                }
+            }
         }
     }
 }
-
-module.exports = Aik;
