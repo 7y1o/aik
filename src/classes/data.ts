@@ -28,7 +28,7 @@ namespace Aik {
         }
 
         /** Save variable */
-        saveVariable(variable: string, value: any, force: boolean = false) {
+        public SaveVariable(variable: string, value: any, force: boolean = false) {
             if(this.saved[variable] !== undefined && !force) {
                 return;
             }
@@ -38,7 +38,7 @@ namespace Aik {
         }
 
         /** Get variable */
-        readVariable(variable: string) : any {
+        public ReadVariable(variable: string) : any {
             return this.saved[variable] || '';
         }
 
