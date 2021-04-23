@@ -24,7 +24,7 @@ namespace Aik {
         public static findName(line: string) : string {
             const availableNames = Aik.Data.LoadJSON(`${__dirname}/../../data/names.json`);
             line.trim().split(' ').forEach(word => {
-                let found = availableNames.findIndex(item => item === word);
+                let found = availableNames.findIndex(item => require('natural').JaroWinklerDistance(item, word) > .85);
                 if(found !== -1) {
                     return line.trim().split(' ')[found];
                 }
