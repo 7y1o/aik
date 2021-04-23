@@ -1,33 +1,35 @@
 const fs = require('fs');
-const out = require(`${__dirname}/output`);
 
 namespace Aik {
-    class Data {
-        private dictionary: object;
-        private variables: object;
-        private templates: object;
-        private mindems: object;
-    
-        /** Init data holders */
+
+    export class Data {
+        private mindems: any;
+        private saved: any;
+
+        /** Initialize assistant data holder */
         public constructor() {
-            this.dictionary = this.loadJSON(`${__dirname}/../../data/dictionary.json`);
+            this.mindems = Aik.Data.LoadJSON(`${__dirname}/../../data/mindems.json`);
+            this.saved = Aik.Data.LoadJSON(`${__dirname}/../../data/saved.json`);
         }
-    
-        /** Load data from disk */
-        private loadJSON(path: string) : object {
-            let gotData: object;
-            
+
+        /** Load JSON file from disk */
+        public static LoadJSON(path: string) : object {
+            let dataHolder: object;
+
             try {
-                gotData = JSON.parse(
+                dataHolder = JSON.parse(
                     fs.readFileSync(path).toString('utf-8')
                 );
-            } catch(err) {
-                out.Output.show(`мне не удалось получить данные (файл ${path})`);
+            } catch (e) {
+                Aik.Output.Show(`Упс! Не удалось загрузить файл ${path}`, Aik.OutType.ERROR);
             }
 
-            return gotData;
+            return dataHolder;
+        }
+
+        /** Check if user runs assistant first time */
+        public get FirstRun(): boolean {
+            return !this.saved.name || !this.saved.search;
         }
     }
 }
-
-module.exports = Aik;
