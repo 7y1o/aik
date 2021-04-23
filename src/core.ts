@@ -10,7 +10,7 @@ namespace Aik {
 
             // Check if user runs assistant program first time
             if(this.data.FirstRun) {
-                Aik.Setup.RunSetup();
+                Aik.Setup.RunSetup(this.data);
             }
 
             // After checks, run assistant
