@@ -1,40 +1,32 @@
 {
   "name": "aik",
-  "version": "0.1.0",
-  "description": "Русский ассистент для работы",
+  "version": "0.0.1",
+  "description": "Russian assistant core",
   "main": "index.js",
   "scripts": {
-    "run": "tsc && node ."
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/7y1o/aik.git"
   },
   "keywords": [
-    "ai",
-    "artificical",
-    "intelligence",
     "aik",
+    "ai",
+    "helper",
     "assistant",
-    "neural",
-    "network",
-    "neuralnet"
+    "core"
   ],
-  "author": "tdesu",
-  "license": "MPL-2.0",
+  "author": "7y1o",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/7y1o/aik/issues"
   },
   "homepage": "https://github.com/7y1o/aik#readme",
-  "dependencies": {
-    "@types/deasync": "^0.1.1",
+  "devDependencies": {
     "@types/natural": "^2.1.1",
-    "@types/node": "^14.14.41",
-    "@types/synaptic": "^1.0.3",
-    "ansi-colors": "^4.1.1",
-    "ava": "^3.15.0",
-    "enquirer": "^2.3.6",
-    "natural": "^5.0.3",
+    "@types/node": "^15.3.0",
+    "chalk": "^4.1.1",
     "typescript": "^4.2.4"
   }
 }
